@@ -1,6 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<script>
+  import Search from "../lib/components/Search.svelte";
 
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
+  let location = "Leeds";
+  let weather = null;
+</script>
+
+<div class="flex flex-col bg-black items-center p-4 text-white min-h-screen">
+  <Search />
+</div>
