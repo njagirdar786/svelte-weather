@@ -1,3 +1,7 @@
+<script context="module">
+  export const ssr = false;
+</script>
+
 <script>
   import { onMount } from "svelte";
   import Search from "../lib/components/Search.svelte";
@@ -10,18 +14,14 @@
     const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
     const response = await fetch(url);
     weather = await response.json();
-    console.log(weather);
   }
 
   onMount(() => {
     fetchWeather(location);
   });
 
-  function getLocation(location) {
-    location = this.location;
-  }
-
-  $: if (location) {
+  function getLocation(newLocation) {
+    location = newLocation;
     fetchWeather(location);
   }
 </script>

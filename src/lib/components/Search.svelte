@@ -1,11 +1,11 @@
 <script>
-  export let setLocation;
+  export let getLocation;
 
   let query = "";
 
   function handleSubmit(e) {
     e.preventDefault();
-    setLocation(query);
+    getLocation(query);
   }
 </script>
 
