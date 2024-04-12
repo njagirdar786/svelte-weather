@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import Search from "../lib/components/Search.svelte";
 
   let location = "Leeds";
   let weather = null;
@@ -9,13 +10,24 @@
     const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
     const response = await fetch(url);
     weather = await response.json();
+    console.log(weather);
   }
 
   onMount(() => {
     fetchWeather(location);
   });
+
+  function getLocation(location) {
+    location = this.location;
+  }
+
+  $: if (location) {
+    fetchWeather(location);
+  }
 </script>
 
 <div class="flex flex-col bg-black items-center p-4 text-white min-h-screen">
-  <h1>{weather ? weather.location.region : "Loading"}</h1>
+  <Search {getLocation} />
+
+  <h1>{weather ? weather.current.condition.text : "Loading"}</h1>
 </div>
