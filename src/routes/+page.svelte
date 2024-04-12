@@ -7,6 +7,7 @@
   import Search from "../lib/components/Search.svelte";
   import CurrentWeather from "../lib/components/CurrentWeather.svelte";
   import WeatherDetails from "../lib/components/WeatherDetails.svelte";
+  import WeatherForecast from "../lib/components/WeatherForecast.svelte";
 
   let location = "Leeds";
   let weather = null;
@@ -35,6 +36,7 @@
     <div class=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
       <CurrentWeather data={weather} />
       <WeatherDetails data={weather} />
+      <WeatherForecast data={weather} />
     </div>
   {:else}
     <p>Loading...</p>
