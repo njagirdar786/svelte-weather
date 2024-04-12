@@ -5,6 +5,7 @@
 <script>
   import { onMount } from "svelte";
   import Search from "../lib/components/Search.svelte";
+  import CurrentWeather from "../lib/components/CurrentWeather.svelte";
 
   let location = "Leeds";
   let weather = null;
@@ -29,5 +30,9 @@
 <div class="flex flex-col bg-black items-center p-4 text-white min-h-screen">
   <Search {getLocation} />
 
-  <h1>{weather ? weather.current.condition.text : "Loading"}</h1>
+  {#if weather}
+    <CurrentWeather data={weather} />
+  {:else}
+    <p>Loading...</p>
+  {/if}
 </div>
