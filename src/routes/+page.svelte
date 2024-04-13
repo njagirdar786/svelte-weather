@@ -13,7 +13,7 @@
   let weather = null;
 
   async function fetchWeather(location) {
-    const apiKey = import.meta.env.VITE_NEXT_PUBLIC_WEATHER_API_KEY;
+    const apiKey = import.meta.env.VITE_PUBLIC_WEATHER_API_KEY;
     const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
     const response = await fetch(url);
     weather = await response.json();
