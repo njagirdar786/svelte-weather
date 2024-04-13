@@ -15,6 +15,6 @@
         width="40"
       />
     </div>
-    <a href={"/"} class="btn">View More</a>
+    <a href={`/forecast/${location}/${day.date}`} class="btn">View More</a>
   </div>
 </div>

@@ -10,7 +10,7 @@
     <h2 class="card-title">3 Days Forecast</h2>
     <div class="flex justify-around">
       {#each data.forecast.forecastday as day}
-        <ForecastCard key={day.date} {day} location={data.location.name} />
+        <ForecastCard {day} location={data.location.name} />
       {/each}
     </div>
   </div>
