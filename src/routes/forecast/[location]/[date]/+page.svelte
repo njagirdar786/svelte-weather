@@ -9,9 +9,7 @@
 
   onMount(async () => {
     await fetchWeatherData(location, date);
-    if (dayData) {
-      initializeChart();
-    }
+    initializeChart();
   });
 
   async function fetchWeatherData(location, date) {
